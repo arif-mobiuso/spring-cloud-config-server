@@ -35,4 +35,4 @@ spring.config.import=optional:configserver:http://localhost:8888
 
 spring.application.name=vitaledge-activemq
 
-
+test: Test String from vitaledge-activemq specific config file
