@@ -1,38 +1,55 @@
-server.port = 8090
+server.port: 8090
 
-spring.activemq.broker-url=tcp://localhost:61616
-spring.activemq.user=admin
-spring.activemq.password=admin
+spring.activemq:
+  broker-url: tcp://localhost:61616
+  user: admin
+  password: admin
 
 
 # Configure Logback
-logging.level.root=INFO
+logging.level.root: INFO
 
 # Appender configuration for file output
-logging.file.name=logs/info.log
-logback.classic.pattern.ClassicConverter=PATTERN
+logging.file.name: logs/info.log
+logback.classic.pattern.ClassicConverter: PATTERN
 
 # Pattern layout for log messages
-pattern=%d{ISO8601} %-5level %logger{36} - %msg%n
+pattern: %d{ISO8601} %-5level %logger{36} - %msg%n
 
-logging.level.org.apache.catalina.core.=OFF
-logging.level.org.springframework.web.servlet=OFF
-logging.level.org.springframework.boot.autoconfigure=ERROR
-logging.level.org.springframework.boot=ERROR
-
-
-DEBUG=true
-
-
-ERP_DOCTYPE_TO_WMS_QUEUE_MAP:{'RECEIPTS' : 'D6QRECIPTS' , 'RECEIPT_TYPES' : 'D6QRECTYP', 'PARTS' : 'D6QITEMS', 'ORDERS' : 'D6QORDERS' ,'ORDER_TYPES' : 'D6QORDTYP' , 'INVENTORY' : 'D6QINVNTRY' , 'DELIVERY_LOCATIONS' : 'D6QDELLOC'} 
-
-WMS_RESPONSE_QUEUE_TO_ERP_DOCTYPE_MAP:{'D6QRECIPTS.response' : 'RECEIPTS_RESPONSE','D6QRECTYP.response' : 'RECEIPT_TYPES_RESPONSE','D6QITEMS.response' : 'PARTS_RESPONSE','D6QORDERS.response' : 'ORDERS_RESPONSE','D6QORDTYP.response' : 'ORDER_TYPES_RESPONSE','D6QINVNTRY.response' : 'INVENTORY_RESPONSE','D6QDELLOC.response' : 'DELIVERY_LOCATIONS_RESPONSE'}
-
-ERP_API_ENDPOINT:http://localhost:8090/vitaledge/toERP/api/v1.0/documents/
+logging.level.org:
+  apache.catalina.core.: OFF
+  springframework:
+    web.servlet: OFF
+    boot.autoconfigure: ERROR
+    boot: ERROR
 
 
-spring.config.import=optional:configserver:http://localhost:8888
+DEBUG: true
 
-spring.application.name=vitaledge-activemq
+
+ERP_DOCTYPE_TO_WMS_QUEUE_MAP:
+  RECEIPTS: D6QRECIPTS
+  RECEIPT_TYPES: D6QRECTYP
+  PARTS: D6QITEMS
+  ORDERS: D6QORDERS
+  ORDER_TYPES: D6QORDTYP
+  INVENTORY: D6QINVNTRY
+  DELIVERY_LOCATIONS: D6QDELLOC
+
+WMS_RESPONSE_QUEUE_TO_ERP_DOCTYPE_MAP:
+  D6QRECIPTS.response: RECEIPTS_RESPONSE
+  D6QRECTYP.response: RECEIPT_TYPES_RESPONSE
+  D6QITEMS.response: PARTS_RESPONSE
+  D6QORDERS.response: ORDERS_RESPONSE
+  D6QORDTYP.response: ORDER_TYPES_RESPONSE
+  D6QINVNTRY.response: INVENTORY_RESPONSE
+  D6QDELLOC.response: DELIVERY_LOCATIONS_RESPONSE
+
+ERP_API_ENDPOINT: http://localhost:8090/vitaledge/toERP/api/v1.0/documents/
+
+
+spring.config.import=optional:configserver: http://localhost:8888
+
+spring.application.name: vitaledge-activemq
 
 test: Test String from vitaledge-activemq specific config file
